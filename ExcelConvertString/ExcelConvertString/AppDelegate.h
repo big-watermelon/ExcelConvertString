@@ -27,4 +27,3 @@
 
 @end
 
-/Users/tenorsharedeveloper/Desktop/DXG/有用的demo/国际化翻译/ExcelConvertString/ExcelConvertString/AppDelegate.m
