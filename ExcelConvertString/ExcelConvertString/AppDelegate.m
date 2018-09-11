@@ -56,7 +56,7 @@
 @implementation AppDelegate
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-
+    
     [self setupDefault];
 }
 
@@ -74,7 +74,6 @@
 
 - (void)initStartLine
 {//TODO:没有进入
-    NSLog(@"key == (%@) (%@)  %ld", self.keyStartLineTf.stringValue, self.valueStartLineTf.stringValue, self.keyStartLineTf.stringValue.length);
     if (self.keyStartLineTf.stringValue.length == 0) {
         self.keyStartLineTf.stringValue = @"1";
     }
@@ -146,7 +145,7 @@
     NSString *string = [self deleteSpaceAndNewline:self.leftTextView.string];
     NSMutableArray *valueArray = [NSMutableArray array];
     self.keyRepetitionSet = [[NSMutableSet alloc] init];
-
+    
     NSArray *stringArray = [string componentsSeparatedByString:@"\n"];
     for (int i = 0; i < stringArray.count; i++) {
         NSString *str = stringArray[i];
@@ -184,6 +183,7 @@
     self.rightTextField.hidden = YES;
     NSMutableString *showString = [NSMutableString string];
     NSString *commonStr = @"//MARK:Common Key\n";
+    NSInteger signLength = commonStr.length;
     NSInteger keyCount = 0;
     NSControlStateValue checkState = isKey ? self.buttonKeyRepetition.state:self.buttonValueRepetition.state;
     if (self.keyRepetitionArray.count > 0) {
@@ -214,7 +214,8 @@
             if ([self.keyRepetitionArray containsObject:keyStr]) {
                 if (![self.keyRepetitionSet containsObject:keyStr]) {
                     [self.keyRepetitionSet addObject:keyStr];
-                    [showString insertString:str atIndex:commonStr.length];
+                    [showString insertString:str atIndex:signLength];
+                    signLength += str.length;
                 }
             }else{
                 [showString appendString:str];
@@ -224,7 +225,7 @@
     if (checkState) {
         keyCount = self.keyArray.count;
     }else{
-        keyCount = self.keyArray.count - self.keyRepetitionArray.count + self.keyRepetitionSet.count;
+        keyCount = self.keyArray.count - self.keyRepetitionArray.count;
     }
     NSInteger nullCount = isKey ? 0:self.keyArray.count - valueArray.count;
     NSString *missingStr = @"";
@@ -261,7 +262,6 @@
     NSMutableString *newContentStr = [NSMutableString stringWithString:contentStr];
     if ([contentStr rangeOfString:keyStr].location != NSNotFound) {
         [self setContent:contentStr withKeyString:keyStr withBlock:^(NSRange range) {
-            NSLog(@"%@  %@", contentStr, NSStringFromRange(range));
             NSRange signRange = NSMakeRange(range.location+addCount-1, 1);
             NSString *subStr = [contentStr substringWithRange:signRange];
             if (![subStr isEqualToString:str]) {
