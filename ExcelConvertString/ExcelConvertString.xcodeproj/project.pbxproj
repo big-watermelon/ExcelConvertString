@@ -13,6 +13,9 @@
 		EB490E65213E8E4F002187F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E64213E8E4F002187F5 /* main.m */; };
 		EB490E71213FB514002187F5 /* BRNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E6F213FB514002187F5 /* BRNumberFormatter.m */; };
 		EB490E72213FB514002187F5 /* BRNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E70213FB514002187F5 /* BRNumberField.m */; };
+		EBFCFD52219BBC20003C8AC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFCFD50219BBC20003C8AC9 /* MainViewController.m */; };
+		EBFCFD55219BBEFD003C8AC9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */; };
+		EBFCFD57219BD939003C8AC9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBFCFD56219BD939003C8AC9 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,10 @@
 		EB490E6E213FB514002187F5 /* BRNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRNumberFormatter.h; sourceTree = "<group>"; };
 		EB490E6F213FB514002187F5 /* BRNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRNumberFormatter.m; sourceTree = "<group>"; };
 		EB490E70213FB514002187F5 /* BRNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRNumberField.m; sourceTree = "<group>"; };
+		EBFCFD4F219BBC20003C8AC9 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EBFCFD50219BBC20003C8AC9 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		EBFCFD56219BD939003C8AC9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +69,15 @@
 			children = (
 				EB490E5B213E8E4E002187F5 /* AppDelegate.h */,
 				EB490E5C213E8E4E002187F5 /* AppDelegate.m */,
+				EBFCFD56219BD939003C8AC9 /* Localizable.strings */,
 				EB490E6C213FB500002187F5 /* BRNumber */,
-				EB490E5E213E8E4F002187F5 /* Assets.xcassets */,
-				EB490E60213E8E4F002187F5 /* MainMenu.xib */,
+				EBFCFD4F219BBC20003C8AC9 /* MainViewController.h */,
+				EBFCFD50219BBC20003C8AC9 /* MainViewController.m */,
+				EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */,
 				EB490E63213E8E4F002187F5 /* Info.plist */,
+				EB490E60213E8E4F002187F5 /* MainMenu.xib */,
 				EB490E64213E8E4F002187F5 /* main.m */,
+				EB490E5E213E8E4F002187F5 /* Assets.xcassets */,
 				EB490E66213E8E4F002187F5 /* ExcelConvertString.entitlements */,
 			);
 			path = ExcelConvertString;
@@ -114,6 +125,11 @@
 				TargetAttributes = {
 					EB490E57213E8E4E002187F5 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -141,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB490E5F213E8E4F002187F5 /* Assets.xcassets in Resources */,
+				EBFCFD57219BD939003C8AC9 /* Localizable.strings in Resources */,
+				EBFCFD55219BBEFD003C8AC9 /* MainViewController.xib in Resources */,
 				EB490E62213E8E4F002187F5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +173,7 @@
 				EB490E65213E8E4F002187F5 /* main.m in Sources */,
 				EB490E71213FB514002187F5 /* BRNumberFormatter.m in Sources */,
 				EB490E5D213E8E4E002187F5 /* AppDelegate.m in Sources */,
+				EBFCFD52219BBC20003C8AC9 /* MainViewController.m in Sources */,
 				EB490E72213FB514002187F5 /* BRNumberField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +196,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -235,6 +255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -286,7 +307,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ExcelConvertString/ExcelConvertString.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ExcelConvertString/Info.plist;
@@ -304,7 +324,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ExcelConvertString/ExcelConvertString.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ExcelConvertString/Info.plist;
