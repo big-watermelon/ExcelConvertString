@@ -1,5 +1,5 @@
 # ExcelConvertString
-多语言国际化：Excel表转化成.strings文件形式
+多语言国际化：Excel convert .strings文件
 
 操作：
 第一步
