@@ -24,7 +24,7 @@
 #import "BRNumberField.h"
 #import <stdlib.h>
 
-static NSInteger const NewlineCharactersCount = 60;
+static NSInteger const NewlineCharactersCount = 1000;//换行需要字符数 60
 typedef NS_ENUM(NSInteger, SetupContentType)
 {
     SetupContentType_NormalKey = 0,
@@ -145,12 +145,13 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         NSString *str = stringArray[i];
         if (![self isBlankString:str]){
             if ([self IsChinese:str]) {
-                annotationStr = [NSString stringWithFormat:@"//MARK:%@\n", str];
+                annotationStr = [NSString stringWithFormat:@"//MARK: %@\n", str];
                 [self.annotationDic setObject:annotationStr forKey:@(self.normalKeyArray.count)];
             }else{
                 if ([self.normalKeyArray containsObject:str]) {
                     [self.keyRepetitionArray addObject:str];
                 }
+                str = [self addSpecifiedWithStr:@"\\" keyStr:@"\"" contentStr:str];
                 [self.normalKeyArray addObject:str];
                 annotationStr = @"";
             }
@@ -222,6 +223,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                 if ([self.stringsKeyArray containsObject:keyStr]) {
                     [self.stringKeyRepetitionArray addObject:keyStr];
                 }
+                str = [self addSpecifiedWithStr:@"\\" keyStr:@"\"" contentStr:str];
                 [self.stringsKeyArray addObject:keyStr];
             }
         }else{
@@ -419,11 +421,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     if ([contentStr rangeOfString:keyStr].location != NSNotFound) {
         [self setContent:contentStr withKeyString:keyStr withBlock:^(NSRange range) {
             NSRange signRange = NSMakeRange(range.location+addCount-1, 1);
-            NSString *subStr = [contentStr substringWithRange:signRange];
-            if (![subStr isEqualToString:str]) {
-                [newContentStr insertString:str atIndex:signRange.location+1];
-                addCount ++;
-            }
+            [newContentStr insertString:str atIndex:signRange.location+1];
+            addCount ++; 
         }];
     }
     return newContentStr;
