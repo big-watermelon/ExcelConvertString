@@ -26,6 +26,7 @@
 #import "CommonFunction.h"
 #import "KeyValueStateModel.h"
 static NSInteger const NewlineCharactersCount = 60;//换行需要字符数 60
+
 typedef NS_ENUM(NSInteger, SetupContentType)
 {
     SetupContentType_NormalKey = 0,
@@ -249,6 +250,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                 if ([self.stringsKeyArray containsObject:keyStr]) {
                     [self.stringKeyRepetitionArray addObject:keyStr];
                 }
+                str = [self addSpecifiedWithStr:@"\\" keyStr:@"\"" contentStr:str];
                 [self.stringsKeyArray addObject:keyStr];
                 [self.stringValueArray addObject:valueStr];
             }
@@ -488,9 +490,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     [CommonFunction getKeyRangeWithContent:str keyStr:@"\"\"" withBlock:^(NSRange range) {
         [weakSelf.rightTextView setTextColor:[NSColor blueColor] range:range];
     }];
-    
-}
 
+}
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
     return YES;
