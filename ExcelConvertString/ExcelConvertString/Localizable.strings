@@ -2,14 +2,24 @@
   Localizable.strings
   ExcelConvertString
 
-  Created by Tenorshare Developer on 2018/11/14.
+  Created by admin on 2018/11/14.
   Copyright © 2018 大西瓜. All rights reserved.
 */
-
-"B" = "";
-"D" = "";
-"E" = "";
-"C" = "";
-"a" = "";
-"f" = "";
-"E" = "";
+/*
+ 1.1 2019-02-26
+    解决""转义导致的崩溃问题。
+ */
+"a%f\"" = "a%";
+"a%f\"" = "a";
+"aa%f\"" = "%sa";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"b" = "b";
+"a%f" = "a%f\"";
+"a%f" = "a\"";
+"/*" = "a";
+"//*" = "b";

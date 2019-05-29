@@ -2,7 +2,7 @@
 //  MainViewController.h
 //  ExcelConvertString
 //
-//  Created by Tenorshare Developer on 2018/11/14.
+//  Created by admin on 2018/11/14.
 //  Copyright © 2018 大西瓜. All rights reserved.
 //
 /*

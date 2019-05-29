@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84B8CE01229D295D00A4E079 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CE00229D295D00A4E079 /* CommonFunction.m */; };
+		84B8CE04229E2C1A00A4E079 /* KeyValueStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */; };
 		EB490E5D213E8E4E002187F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E5C213E8E4E002187F5 /* AppDelegate.m */; };
 		EB490E5F213E8E4F002187F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB490E5E213E8E4F002187F5 /* Assets.xcassets */; };
 		EB490E62213E8E4F002187F5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB490E60213E8E4F002187F5 /* MainMenu.xib */; };
@@ -19,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84B8CDFF229D295D00A4E079 /* CommonFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
+		84B8CE00229D295D00A4E079 /* CommonFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
+		84B8CE02229E2C1A00A4E079 /* KeyValueStateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueStateModel.h; sourceTree = "<group>"; };
+		84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueStateModel.m; sourceTree = "<group>"; };
 		EB490E58213E8E4E002187F5 /* ExcelConvertString.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcelConvertString.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB490E5B213E8E4E002187F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB490E5C213E8E4E002187F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -74,6 +80,10 @@
 				EBFCFD4F219BBC20003C8AC9 /* MainViewController.h */,
 				EBFCFD50219BBC20003C8AC9 /* MainViewController.m */,
 				EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */,
+				84B8CDFF229D295D00A4E079 /* CommonFunction.h */,
+				84B8CE00229D295D00A4E079 /* CommonFunction.m */,
+				84B8CE02229E2C1A00A4E079 /* KeyValueStateModel.h */,
+				84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */,
 				EB490E63213E8E4F002187F5 /* Info.plist */,
 				EB490E60213E8E4F002187F5 /* MainMenu.xib */,
 				EB490E64213E8E4F002187F5 /* main.m */,
@@ -172,6 +182,8 @@
 			files = (
 				EB490E65213E8E4F002187F5 /* main.m in Sources */,
 				EB490E71213FB514002187F5 /* BRNumberFormatter.m in Sources */,
+				84B8CE01229D295D00A4E079 /* CommonFunction.m in Sources */,
+				84B8CE04229E2C1A00A4E079 /* KeyValueStateModel.m in Sources */,
 				EB490E5D213E8E4E002187F5 /* AppDelegate.m in Sources */,
 				EBFCFD52219BBC20003C8AC9 /* MainViewController.m in Sources */,
 				EB490E72213FB514002187F5 /* BRNumberField.m in Sources */,
