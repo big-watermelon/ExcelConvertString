@@ -250,7 +250,6 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                 if ([self.stringsKeyArray containsObject:keyStr]) {
                     [self.stringKeyRepetitionArray addObject:keyStr];
                 }
-                str = [self addSpecifiedWithStr:@"\\" keyStr:@"\"" contentStr:str];
                 [self.stringsKeyArray addObject:keyStr];
                 [self.stringValueArray addObject:valueStr];
             }
