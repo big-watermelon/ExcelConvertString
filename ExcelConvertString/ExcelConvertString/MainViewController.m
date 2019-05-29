@@ -26,7 +26,7 @@
 #import "CommonFunction.h"
 #import "KeyValueStateModel.h"
 static NSInteger const NewlineCharactersCount = 60;//换行需要字符数 60
-
+static NSString *const kNewLineString = @"\n";
 typedef NS_ENUM(NSInteger, SetupContentType)
 {
     SetupContentType_NormalKey = 0,
@@ -156,7 +156,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     self.annotationDic = [[NSMutableDictionary alloc] init];
     self.keyRepetitionSet = [[NSMutableSet alloc] init];
     NSString *annotationStr = @"";
-    NSArray *stringArray = [string componentsSeparatedByString:@"\n"];
+    NSArray *stringArray = [string componentsSeparatedByString:kNewLineString];
     for (int i = 0; i < stringArray.count; i++) {
         NSString *str = stringArray[i];
         if (![CommonFunction isBlankString:str]){
@@ -279,7 +279,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         return;
     }
     self.valueArray = [NSMutableArray array];
-    NSArray *stringArray = [string componentsSeparatedByString:@"\n"];
+    NSArray *stringArray = [string componentsSeparatedByString:kNewLineString];
     for (int i = 0; i < stringArray.count; i++) {
         NSString *str = stringArray[i];
         if (![CommonFunction isBlankString:str]){
@@ -307,7 +307,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         self.rightTextField.hidden = YES;
         for (NSString *str in array) {
             if (str.length > 0) {
-                self.rightTextView.string = [[self.rightTextView.string stringByAppendingString:str] stringByAppendingString:@"\n"];
+                self.rightTextView.string = [[self.rightTextView.string stringByAppendingString:str] stringByAppendingString:kNewLineString];
             }
         }
         self.keyConvertArray = [array sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
@@ -391,6 +391,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                 }
         }
         NSUInteger strLength = 0;
+        NSUInteger addStrLength = 0;
         if (valueStr && keyStr) {
             //替换关键字
             if (self.keyConvertArray.count > 0) {
@@ -404,7 +405,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
             }
             if (type == SetupContentType_NormalKey ||
                 type == SetupContentType_NormalValue) {
-                str = [str stringByAppendingString:@"\n"];
+                str = [str stringByAppendingString:kNewLineString];
+                addStrLength += kNewLineString.length;
             }
         }
         if ([CommonFunction isBlankString:valueStr]) {
@@ -426,7 +428,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                     [repetitionSet addObject:keyStr];
                     if (type == SetupContentType_StringsKey ||
                         type == SetupContentType_StringsValue) {
-                        str = [str stringByAppendingString:@"\n"];
+                        str = [str stringByAppendingString:kNewLineString];
+                        addStrLength += kNewLineString.length;
                     }
                     [showString insertString:str atIndex:signLength];
                     KeyValueStateModel *model = [[KeyValueStateModel alloc] init];
@@ -452,14 +455,14 @@ typedef NS_ENUM(NSInteger, SetupContentType)
             nullCount ++;
             if (!([repetitionArray containsObject:keyStr] &&
                 checkState == NSOffState)) {
-                [showString appendString:@"//缺少翻译"];
+                [showString insertString:@"//缺少翻译" atIndex:showString.length-addStrLength];
             }
         }
         if (formatSpecifiersIsUnequal) {
             formatSpecifiersCount ++;
             if (!([repetitionArray containsObject:keyStr] &&
                 checkState == NSOffState)) {
-                [showString appendString:@"//说明符不匹配"];
+                [showString insertString:@"//说明符不匹配" atIndex:showString.length-addStrLength];
             }
         }
     }//end
