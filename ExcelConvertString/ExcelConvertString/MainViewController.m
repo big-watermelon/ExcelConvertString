@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 @property (unsafe_unretained) IBOutlet NSTextView *leftTextView;
 @property (unsafe_unretained) IBOutlet NSTextView *rightTextView;
 @property (strong, nonatomic) NSTextField *rightTextField;
+@property (weak) IBOutlet NSTextField *tipsLabel;
 
 
 @property (weak) IBOutlet NSButton *buttonKeyRepetition;
@@ -92,12 +93,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-//    NSString *str1 = @"1. Make sure your device's screen is unlocked;";
-//    NSString *str2 = @"1. Stellen Sie sicher, dass der Bildschirm Ihres Geräts nicht gesperrt ist.";
-//    NSLog(@"匹配 %d", [CommonFunction formatSpecifiersIsEqual:str1 str2:str2]);
-//    NSString *str3 = @"Not Delivered";
-//    NSString *str4 = @"Not Delivered";
-//    NSLog(@"匹配 %d", [CommonFunction formatSpecifiersIsEqual:str3 str2:str4]);
+
 }
 
 - (void)awakeFromNib
@@ -110,6 +106,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 {
     NSString *str = @"设置起始行，默认为1";
     self.startLineTf.placeholderString = str;
+    self.tipsLabel.stringValue = @"";
     [self initInstructions];
     [self initStartLine];
 }
@@ -176,7 +173,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     }
     [self.normalKeyArray setArray:[CommonFunction arrayStringTransferredMeaning:self.normalKeyArray]];
     [self.keyRepetitionArray setArray:[CommonFunction arrayStringTransferredMeaning:self.keyRepetitionArray]];
-    [self setupShowStringWithType:SetupContentType_NormalKey];
+    [self setupShowStringWithType:SetupContentType_NormalKey isConvert:NO];
 }
 
 - (IBAction)convertAction:(id)sender
@@ -186,13 +183,14 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         self.rightTextView.string = @"normalKey为空";
         return;
     }
-    [self setupShowStringWithType:SetupContentType_NormalValue];
+    [self setupShowStringWithType:SetupContentType_NormalValue isConvert:YES];
 }
 
 - (IBAction)clearAction:(id)sender
 {
     self.leftTextView.string = @"";
     self.rightTextView.string = @"";
+    self.tipsLabel.stringValue = @"";
     self.rightTextField.hidden = NO;
 }
 
@@ -259,7 +257,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     [self.stringsKeyArray setArray:[CommonFunction arrayStringTransferredMeaning:self.stringsKeyArray]];
     [self.stringKeyRepetitionArray setArray:[CommonFunction arrayStringTransferredMeaning:self.stringKeyRepetitionArray]];
     [self.stringValueArray setArray:[CommonFunction arrayStringTransferredMeaning:self.stringValueArray]];
-    [self setupShowStringWithType:SetupContentType_StringsKey];
+    [self setupShowStringWithType:SetupContentType_StringsKey isConvert:NO];
 }
 
 - (IBAction)stringsConvertAction:(id)sender
@@ -269,7 +267,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         self.rightTextView.string = @"stringsKey为空";
         return;
     }
-    [self setupShowStringWithType:SetupContentType_StringsValue];
+    [self setupShowStringWithType:SetupContentType_StringsValue isConvert:YES];
 }
 
 - (IBAction)getValueAction:(id)sender
@@ -318,7 +316,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     }
 }
 // !!!: - 组装显示的内容
-- (void)setupShowStringWithType:(SetupContentType)type
+- (void)setupShowStringWithType:(SetupContentType)type isConvert:(BOOL)isConvert
 {
     [self initStartLine];
     self.rightTextField.hidden = YES;
@@ -454,14 +452,15 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         if (valueIsNull) {
             nullCount ++;
             if (!([repetitionArray containsObject:keyStr] &&
-                checkState == NSOffState)) {
+                checkState == NSOffState) &&
+                isConvert) {
                 [showString insertString:@"//缺少翻译" atIndex:showString.length-addStrLength];
             }
         }
         if (formatSpecifiersIsUnequal) {
             formatSpecifiersCount ++;
             if (!([repetitionArray containsObject:keyStr] &&
-                checkState == NSOffState)) {
+                checkState == NSOffState) && isConvert) {
                 [showString insertString:@"//说明符不匹配" atIndex:showString.length-addStrLength];
             }
         }
@@ -474,7 +473,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     }
     
     NSString *nullStr = [NSString stringWithFormat:@"//一共有（%ld）个翻译，缺少（%ld）个翻译, 说明符有 (%ld)个不匹配\n\n", keyCount, nullCount, formatSpecifiersCount];
-    [showString insertString:nullStr atIndex:0];
+//    [showString insertString:nullStr atIndex:0];
+    self.tipsLabel.stringValue = nullStr;
     self.rightTextView.string = showString;
     [self setRightTextViewKeyStrColorWithStr:showString];
 }
