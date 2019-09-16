@@ -178,6 +178,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (IBAction)convertAction:(id)sender
 {
+    [self getValueAction:nil];
     if (self.normalKeyArray.count == 0) {
         self.rightTextField.hidden = YES;
         self.rightTextView.string = @"normalKey为空";
@@ -262,6 +263,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (IBAction)stringsConvertAction:(id)sender
 {
+    [self getValueAction:nil];
     if (self.stringsKeyArray.count == 0) {
         self.rightTextField.hidden = YES;
         self.rightTextView.string = @"stringsKey为空";

@@ -20,21 +20,21 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <view wantsLayer="YES" id="9kX-F9-2IZ">
-            <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="800" height="497"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-JE-VbP">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                     <clipView key="contentView" drawsBackground="NO" id="mZV-0I-1cZ">
-                        <rect key="frame" x="1" y="1" width="318" height="598"/>
+                        <rect key="frame" x="1" y="1" width="318" height="495"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" spellingCorrection="YES" id="u9f-eq-RBw">
-                                <rect key="frame" x="0.0" y="0.0" width="318" height="598"/>
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="495"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="318" height="598"/>
+                                <size key="minSize" width="318" height="495"/>
                                 <size key="maxSize" width="813" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
@@ -54,17 +54,17 @@
                     </scroller>
                 </scrollView>
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sT-td-xgB">
-                    <rect key="frame" x="480" y="0.0" width="320" height="600"/>
+                    <rect key="frame" x="480" y="0.0" width="320" height="497"/>
                     <clipView key="contentView" drawsBackground="NO" id="lTO-Vn-KQi">
-                        <rect key="frame" x="1" y="1" width="318" height="598"/>
+                        <rect key="frame" x="1" y="1" width="318" height="495"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="RCn-fA-cmL">
-                                <rect key="frame" x="0.0" y="0.0" width="318" height="598"/>
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="495"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="318" height="598"/>
+                                <size key="minSize" width="318" height="495"/>
                                 <size key="maxSize" width="828" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
@@ -80,7 +80,7 @@
                     </scroller>
                 </scrollView>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fRJ-z2-ZdB" customClass="BRNumberField">
-                    <rect key="frame" x="320" y="447" width="160" height="22"/>
+                    <rect key="frame" x="320" y="395" width="160" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Only 0~100" drawsBackground="YES" id="jsW-ke-ALn">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -93,7 +93,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-uc-e86">
-                    <rect key="frame" x="337" y="409" width="126" height="32"/>
+                    <rect key="frame" x="337" y="357" width="126" height="32"/>
                     <buttonCell key="cell" type="push" title="getNormalKey" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="itl-m3-MYd">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -103,7 +103,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8eS-b6-ZO9">
-                    <rect key="frame" x="334" y="378" width="132" height="32"/>
+                    <rect key="frame" x="334" y="326" width="132" height="32"/>
                     <buttonCell key="cell" type="push" title="NormalConvert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="N5E-4D-aUT">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -113,7 +113,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FTo-8p-xft">
-                    <rect key="frame" x="338" y="283" width="124" height="32"/>
+                    <rect key="frame" x="338" y="231" width="124" height="32"/>
                     <buttonCell key="cell" type="push" title="Clear Content" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwg-7C-LFp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -123,7 +123,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8uS-Bu-LMJ">
-                    <rect key="frame" x="342" y="359" width="116" height="18"/>
+                    <rect key="frame" x="342" y="307" width="116" height="18"/>
                     <buttonCell key="cell" type="check" title="KeyIsRepetition" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ULO-qm-etI">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" usesAppearanceFont="YES"/>
@@ -133,7 +133,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cwu-Kt-ISy">
-                    <rect key="frame" x="338" y="212" width="125" height="32"/>
+                    <rect key="frame" x="338" y="160" width="125" height="32"/>
                     <buttonCell key="cell" type="push" title="getStringsKey" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NxJ-cb-dod">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -143,7 +143,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Maz-l1-3sW">
-                    <rect key="frame" x="335" y="181" width="130" height="32"/>
+                    <rect key="frame" x="335" y="129" width="130" height="32"/>
                     <buttonCell key="cell" type="push" title="stringsConvert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nsf-uE-bGe">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -153,7 +153,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-tq-L2F">
-                    <rect key="frame" x="342" y="162" width="116" height="18"/>
+                    <rect key="frame" x="342" y="110" width="116" height="18"/>
                     <buttonCell key="cell" type="check" title="KeyIsRepetition" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tBn-AS-7fz">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" usesAppearanceFont="YES"/>
@@ -183,7 +183,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="155" translatesAutoresizingMaskIntoConstraints="NO" id="k69-yf-NF7">
-                    <rect key="frame" x="323" y="578" width="154" height="17"/>
+                    <rect key="frame" x="323" y="475" width="154" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="qr2-yK-spF"/>
                     </constraints>
@@ -202,6 +202,7 @@
                 <constraint firstItem="V3q-JE-VbP" firstAttribute="leading" secondItem="9kX-F9-2IZ" secondAttribute="leading" id="83x-gp-MZX"/>
                 <constraint firstAttribute="trailing" secondItem="2sT-td-xgB" secondAttribute="trailing" id="8lh-iO-O8I"/>
                 <constraint firstItem="Maz-l1-3sW" firstAttribute="top" secondItem="Cwu-Kt-ISy" secondAttribute="bottom" constant="10" id="DQh-jG-ZDm"/>
+                <constraint firstItem="e3h-zA-ytj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NzO-tq-L2F" secondAttribute="bottom" constant="10" id="DqI-4x-KlS"/>
                 <constraint firstItem="jg3-uc-e86" firstAttribute="centerX" secondItem="9kX-F9-2IZ" secondAttribute="centerX" id="OAk-A0-MzH"/>
                 <constraint firstItem="Cwu-Kt-ISy" firstAttribute="top" secondItem="FTo-8p-xft" secondAttribute="bottom" constant="50" id="Q9s-vA-7Oz"/>
                 <constraint firstAttribute="bottom" secondItem="Jye-hd-bps" secondAttribute="bottom" constant="50" id="Qfn-U8-swH"/>
