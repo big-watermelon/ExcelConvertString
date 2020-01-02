@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <AppKit/AppKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CommonFunction : NSObject
@@ -34,6 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
  @return str
  */
 + (NSString *)deleteSpaceAndNewline:(NSString *)str;
+
+/**
+ 异常空格（WPS空格，全角空格）替换成正常空格（半角空格）
+
+ @param str str
+ @param btn btn
+ @return str
+ */
++ (NSString *)replacingSpace:(NSString *)str btn:(NSButton *)btn;
 /**
  判断字符为空
 

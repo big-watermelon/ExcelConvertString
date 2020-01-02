@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="buttonKeyRepetition" destination="8uS-Bu-LMJ" id="771-5R-BwX"/>
                 <outlet property="buttonStringsKeyRepetition" destination="NzO-tq-L2F" id="iMv-75-dKk"/>
+                <outlet property="convertSpaceCheck" destination="Zur-Ek-2Qq" id="bs2-eR-o3A"/>
                 <outlet property="leftTextView" destination="u9f-eq-RBw" id="UcF-bq-98y"/>
                 <outlet property="rightTextView" destination="RCn-fA-cmL" id="T6Q-Ci-Lig"/>
                 <outlet property="startLineTf" destination="fRJ-z2-ZdB" id="wgp-3X-3bt"/>
@@ -193,6 +194,13 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zur-Ek-2Qq">
+                    <rect key="frame" x="347" y="24" width="106" height="18"/>
+                    <buttonCell key="cell" type="check" title="convertSpace" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ENk-XD-WMR">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="FTo-8p-xft" firstAttribute="top" secondItem="8uS-Bu-LMJ" secondAttribute="bottom" constant="50" id="0TQ-m3-agN"/>
@@ -203,6 +211,7 @@
                 <constraint firstAttribute="trailing" secondItem="2sT-td-xgB" secondAttribute="trailing" id="8lh-iO-O8I"/>
                 <constraint firstItem="Maz-l1-3sW" firstAttribute="top" secondItem="Cwu-Kt-ISy" secondAttribute="bottom" constant="10" id="DQh-jG-ZDm"/>
                 <constraint firstItem="e3h-zA-ytj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NzO-tq-L2F" secondAttribute="bottom" constant="10" id="DqI-4x-KlS"/>
+                <constraint firstItem="Zur-Ek-2Qq" firstAttribute="centerX" secondItem="9kX-F9-2IZ" secondAttribute="centerX" id="JkX-MG-etp"/>
                 <constraint firstItem="jg3-uc-e86" firstAttribute="centerX" secondItem="9kX-F9-2IZ" secondAttribute="centerX" id="OAk-A0-MzH"/>
                 <constraint firstItem="Cwu-Kt-ISy" firstAttribute="top" secondItem="FTo-8p-xft" secondAttribute="bottom" constant="50" id="Q9s-vA-7Oz"/>
                 <constraint firstAttribute="bottom" secondItem="Jye-hd-bps" secondAttribute="bottom" constant="50" id="Qfn-U8-swH"/>
@@ -226,6 +235,7 @@
                 <constraint firstItem="fRJ-z2-ZdB" firstAttribute="leading" secondItem="V3q-JE-VbP" secondAttribute="trailing" id="gHv-ry-ZSP"/>
                 <constraint firstItem="e3h-zA-ytj" firstAttribute="centerX" secondItem="NzO-tq-L2F" secondAttribute="centerX" id="gNd-3R-gGd"/>
                 <constraint firstItem="jg3-uc-e86" firstAttribute="top" secondItem="fRJ-z2-ZdB" secondAttribute="bottom" constant="10" id="oGz-qB-9fm"/>
+                <constraint firstItem="Zur-Ek-2Qq" firstAttribute="top" secondItem="Jye-hd-bps" secondAttribute="bottom" constant="10" id="rAm-cc-zV8"/>
                 <constraint firstItem="k69-yf-NF7" firstAttribute="top" secondItem="9kX-F9-2IZ" secondAttribute="top" constant="5" id="rT9-qz-oVX"/>
                 <constraint firstItem="8uS-Bu-LMJ" firstAttribute="top" secondItem="8eS-b6-ZO9" secondAttribute="bottom" constant="10" id="sTu-vX-RIu"/>
                 <constraint firstItem="fRJ-z2-ZdB" firstAttribute="centerX" secondItem="9kX-F9-2IZ" secondAttribute="centerX" id="tfo-N0-WtS"/>

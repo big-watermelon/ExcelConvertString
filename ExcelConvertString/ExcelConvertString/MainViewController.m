@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 @property (weak) IBOutlet NSButton *buttonKeyRepetition;
 @property (weak) IBOutlet NSButton *buttonStringsKeyRepetition;
+@property (weak) IBOutlet NSButton *convertSpaceCheck;
 
 /**
  用于获取key时设置，从0开始 一列一般为 1，两列为 3
@@ -93,7 +94,23 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+//    [self testSpace];
+}
 
+- (void)testSpace
+{
+//    NSString *correct = @" ";//正确空格
+    //空格替换,第一个空格Unicode \ua0
+    NSString *str1 = @" ";
+    //全角空格，Unicode是　\u3000
+    NSString *str2 = @"　";
+    NSString *str3 = @" ";
+    NSString *str4 = [str3 stringByReplacingOccurrencesOfString:str3 withString:@" "];
+//    BOOL a1 = [str1 isEqualToString:correct];
+//    BOOL a2 = [str2 isEqualToString:correct];
+//    BOOL a3 = [str3 isEqualToString:correct];
+//    BOOL a4 = [str4 isEqualToString:correct];
+    NSLog(@"测试异常空格真实:%@*%@*%@*%@", str1, str2, str3, str4);
 }
 
 - (void)awakeFromNib
@@ -145,6 +162,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 - (IBAction)getKeyAction:(id)sender
 {
     NSString *string = [CommonFunction deleteSpaceAndNewline:self.leftTextView.string];
+    string = [CommonFunction replacingSpace:string btn:self.convertSpaceCheck];
     if ([CommonFunction isBlankString:string]) {
         return;
     }
@@ -234,6 +252,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     self.stringValueArray = [[NSMutableArray alloc] init];
     NSString *stringContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];//NSUnicodeStringEncoding
     stringContent = [CommonFunction deleteSpaceAndNewline:stringContent];
+    stringContent = [CommonFunction replacingSpace:stringContent btn:self.convertSpaceCheck];
 //    NSArray *array1 = [str1 componentsSeparatedByString:@";"];
     __block NSArray *keyValueArray = [NSArray array];
     [CommonFunction matchesWithContent:stringContent completeBlock:^(NSArray * _Nonnull stringArray, NSDictionary * _Nonnull annotationDic) {
@@ -275,6 +294,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 - (IBAction)getValueAction:(id)sender
 {
     NSString *string = [CommonFunction deleteSpaceAndNewline:self.leftTextView.string];
+    string = [CommonFunction replacingSpace:string btn:self.convertSpaceCheck];
     if ([CommonFunction isBlankString:string]) {
         return;
     }
@@ -299,6 +319,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (IBAction)getConvertKeyAction:(id)sender {
     NSString *string = [CommonFunction deleteSpaceAndNewline:self.leftTextView.string];
+    string = [CommonFunction replacingSpace:string btn:self.convertSpaceCheck];
     if ([CommonFunction isBlankString:string]) {
         return;
     }else{
@@ -513,5 +534,6 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     subView.translatesAutoresizingMaskIntoConstraints = NO;
     [view addConstraints:@[left, width, top, bottom]];
 }
+
 
 @end
