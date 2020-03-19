@@ -18,6 +18,10 @@
  3.注释列每行至少一个中文，没有自行添加
  4.key区分大小写
  5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)
+ .xml解析说明:
+ 1.拖入xml路径->getXmlKey\n
+ 2.拖入key=xml.key的strings文件路径->getStringsKey\n
+ 3.XmlConvert
  */
 #import <Cocoa/Cocoa.h>
 

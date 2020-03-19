@@ -7,8 +7,11 @@
 //
 
 #import "CommonFunction.h"
+#import <CommonCrypto/CommonCrypto.h>
+
 
 @implementation CommonFunction
+
 #pragma mark - 判断是否有中文
 + (BOOL)IsChinese:(NSString *)str
 {
@@ -176,5 +179,127 @@
     //获取运行结果
     NSData *data = [file readDataToEndOfFile];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
++ (NSString *)md5:(NSString *)input {
+    const char *cStr = [input UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (int)strlen(cStr), digest); // This is the md5 call
+        NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return output;
+}
+
++ (void)translateString:(NSString *)string fromType:(LanguageType)fType toType:(LanguageType)tType completed:(void (^)(NSString * _Nullable, NSString * _Nullable))completed
+{
+    //创建URL
+    NSString *encodeStr = [string stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+    NSString *httpStr = @"http://api.fanyi.baidu.com/api/trans/vip/translate";
+//    NSString *httpsStr = @"https://fanyi-api.baidu.com/api/trans/vip/translate";//备用
+    NSString *appIdStr = @"20200315000398557";
+    NSString *saltStr = @"1435660288";
+    NSString *secretStr = @"bwJmdJ4G_uzM9ClZQgRN";
+    NSString *signStr = [NSString stringWithFormat:@"%@%@%@%@", appIdStr, string, saltStr, secretStr];
+    NSString *urlStr = [NSString stringWithFormat:@"%@?q=%@&from=%@&to=%@&appid=%@&salt=%@&sign=%@", httpStr, encodeStr, [self typeString:fType], [self typeString:tType], appIdStr, saltStr, [CommonFunction md5:signStr]];
+    NSURL *url = [NSURL URLWithString:urlStr];
+
+    NSURLRequest *quest = [NSURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:15];
+    //发送请求
+//    NSURLResponse *responce = nil;
+    //创建一个队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:quest queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+           
+//        NSLog(@"%@---\n--%@---\n---%@",[NSThread currentThread],responce,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        if (!data) {
+            completed(nil, @"data为空");
+        }
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        if ([dict.allKeys containsObject:@"error_code"]) {
+            __block NSString *error = @"";
+            [dict.allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (error.length > 0) {
+                    error = [error stringByAppendingString:@"\n"];
+                }
+                error = [error stringByAppendingFormat:@"%@:%@", obj, [dict valueForKey:obj]];
+//                NSLog(@"%@:%@", obj, [dict valueForKey:obj]);
+            }];
+            completed(nil, error);
+        }else{
+            NSArray *array1 = dict[@"trans_result"];
+            NSDictionary *dict2 = array1.firstObject;
+            [dict2 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                if ([key isEqualToString:@"dst"]) {
+                    completed([dict2 valueForKey:key], nil);
+                }
+            }];
+        }
+        
+    }];
+}
+
++ (NSString *)typeString:(LanguageType)type
+{//
+    NSString *str = @"";
+    switch (type) {
+        case LanguageType_auto:
+            str = @"auto";
+            break;
+        case LanguageType_en:
+            str = @"en";
+            break;
+        case LanguageType_zh:
+            str = @"zh";
+            break;
+        case LanguageType_jp:
+            str = @"jp";
+            break;
+        case LanguageType_kor:
+            str = @"kor";
+            break;
+        case LanguageType_fra:
+            str = @"fra";
+            break;
+        case LanguageType_spa:
+            str = @"spa";
+            break;
+        case LanguageType_ara:
+            str = @"ara";
+            break;
+        case LanguageType_th:
+            str = @"th";
+            break;
+        case LanguageType_vie:
+            str = @"vie";
+            break;
+    }
+    return str;
+}
+/*typedef NS_ENUM(NSInteger, LanguageType)
+{
+    LanguageType_auto,      //自动检测
+    LanguageType_en,
+    LanguageType_zh,
+    LanguageType_jp,
+    LanguageType_kor,       //韩语
+    LanguageType_fra,       //法语
+    LanguageType_spa,       //西班牙语
+    LanguageType_th,        //泰语
+    LanguageType_ara,       //阿拉伯语
+    LanguageType_vie,       //越南语
+};
+  */
++ (NSArray<NSString *> *)typeStringArray
+{
+    return @[@"英语en补缺翻译",
+             @"中文zh补缺翻译",
+             @"日语jp补缺翻译",
+             @"韩语kor补缺翻译",
+             @"法语fra补缺翻译",
+             @"西语spa补缺翻译",
+             @"泰语th补缺翻译",
+             @"阿语ara补缺翻译",
+             @"越南语vie补缺翻译"];
 }
 @end

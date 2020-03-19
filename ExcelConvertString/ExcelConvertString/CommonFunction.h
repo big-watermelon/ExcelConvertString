@@ -9,9 +9,21 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef NS_ENUM(NSInteger, LanguageType)
+{
+    LanguageType_en     =0,
+    LanguageType_zh,
+    LanguageType_jp,
+    LanguageType_kor,       //韩语
+    LanguageType_fra,       //法语
+    LanguageType_spa    =5, //西班牙语
+    LanguageType_th,        //泰语
+    LanguageType_ara,       //阿拉伯语
+    LanguageType_vie    =8, //越南语
+    
+    LanguageType_auto,      //自动检测
+};
 @interface CommonFunction : NSObject
-
 /**
  判断是否有中文
 
@@ -82,6 +94,12 @@ NS_ASSUME_NONNULL_BEGIN
  @return 错误内容
  */
 + (NSString *)stringsIsTrueWithPath:(NSString *)path;
++ (NSString *)md5:(NSString *)input;
+
++ (void)translateString:(NSString *)string fromType:(LanguageType)fType toType:(LanguageType)tType completed:(void(^)(NSString * _Nullable string, NSString * _Nullable error))completed;
+
+/// 列表选择语言类型数组(无auto)
++ (NSArray <NSString *>*)typeStringArray;
 @end
 
 NS_ASSUME_NONNULL_END

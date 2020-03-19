@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "CommonFunction.h"
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -20,7 +21,20 @@
 {
     MainViewController *viewCtl = [[MainViewController alloc] init];
     [self.window setContentViewController:viewCtl];
+    
 }
+
+- (void)test
+{
+    [CommonFunction translateString:@"1、Teacher: whoever answers my next question, can go home." fromType:LanguageType_en toType:LanguageType_zh completed:^(NSString * _Nullable string, NSString * _Nullable error) {
+        if (string) {
+            NSLog(@"str %@", string);
+        }else{
+            NSLog(@"%@", error);
+        }
+    }];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     
