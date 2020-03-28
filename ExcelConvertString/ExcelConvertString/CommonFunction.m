@@ -41,6 +41,15 @@
     
     return [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
+#pragma mark - 异常空格替换成正常空格
++ (NSString *)replacingSpace:(NSString *)str
+{
+    //空格替换,第一个空格Unicode \ua0
+    str = [str stringByReplacingOccurrencesOfString:@" " withString:@" "];
+    //全角空格，Unicode是　\u3000
+    str = [str stringByReplacingOccurrencesOfString:@"　" withString:@" "];
+    return str;
+}
 #pragma mark - 判断字符为空
 + (BOOL)isBlankString:(NSString *)str
 {
@@ -276,20 +285,7 @@
     }
     return str;
 }
-/*typedef NS_ENUM(NSInteger, LanguageType)
-{
-    LanguageType_auto,      //自动检测
-    LanguageType_en,
-    LanguageType_zh,
-    LanguageType_jp,
-    LanguageType_kor,       //韩语
-    LanguageType_fra,       //法语
-    LanguageType_spa,       //西班牙语
-    LanguageType_th,        //泰语
-    LanguageType_ara,       //阿拉伯语
-    LanguageType_vie,       //越南语
-};
-  */
+
 + (NSArray<NSString *> *)typeStringArray
 {
     return @[@"英语en补缺翻译",

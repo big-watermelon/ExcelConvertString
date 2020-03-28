@@ -602,8 +602,9 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     NSString *nullStr = [NSString stringWithFormat:@"//一共有（%ld）个翻译，缺少（%ld）个翻译, 说明符有 (%ld)个不匹配\n\n", keyCount, nullCount, formatSpecifiersCount];
     self.insertLength = nullStr.length;
     [showString insertString:nullStr atIndex:0];
-    self.rightTextView.string = showString;
+    self.rightTextView.string = [CommonFunction replacingSpace:showString];
     [self setRightTextViewKeyStrColorWithStr:showString];
+    
     self.leftTextView.string = @"";
 }
 #pragma mark - 解析strings文件

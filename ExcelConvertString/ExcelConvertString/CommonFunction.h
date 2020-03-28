@@ -47,6 +47,13 @@ typedef NS_ENUM(NSInteger, LanguageType)
  */
 + (NSString *)deleteSpaceAndNewline:(NSString *)str;
 /**
+ 异常空格（WPS空格，全角空格）替换成正常空格（半角空格）
+
+ @param str str
+ @return str
+ */
++ (NSString *)replacingSpace:(NSString *)str;
+/**
  判断字符为空
 
  @param str str
