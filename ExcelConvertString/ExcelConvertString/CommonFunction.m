@@ -163,7 +163,7 @@
 {
     NSString *str1 = [NSString stringWithFormat:@"cd %@/;", path.stringByDeletingLastPathComponent];
     NSString *str2 = @"sudo chmod -R 777;";
-    NSString *str3 = @"plutil -lint Localizable.strings";
+    NSString *str3 = [@"plutil -lint " stringByAppendingString:path.lastPathComponent];//@"plutil -lint Localizable.strings"
     NSString *str4 = [NSString stringWithFormat:@"%@ %@ %@", str1, str2, str3];
     NSString *str5 = [self cmd:str4];
     return str5;

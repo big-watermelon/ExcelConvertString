@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 @interface MainViewController ()<NSXMLParserDelegate>
 @property (unsafe_unretained) IBOutlet NSTextView *leftTextView;
 @property (unsafe_unretained) IBOutlet NSTextView *rightTextView;
+@property (weak) IBOutlet NSTextField *resultLabel;
+
 @property (strong, nonatomic) NSTextField *rightTextField;
 //@property (weak) IBOutlet NSButton *fill_a_vacancy;
 @property (weak) IBOutlet NSPopUpButton *vacancyPopUpBtn;
@@ -219,6 +221,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     self.leftTextView.string = @"";
     self.rightTextView.string = @"";
     self.rightTextField.hidden = NO;
+    self.resultLabel.stringValue = @"";
 }
 
 
@@ -241,7 +244,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                         dispatch_async(dispatch_get_main_queue(), ^{
                             NSMutableString *rightStr = [[NSMutableString alloc] initWithString:self.rightTextView.string];
                             [self.missingValueModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(MissingValueModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                [rightStr replaceCharactersInRange:NSMakeRange(obj.insertLocation+self.insertLength, 0) withString:obj.translateString];
+                                [rightStr replaceCharactersInRange:NSMakeRange(obj.insertLocation, 0) withString:obj.translateString];//+self.insertLength
                             }];
                             self.rightTextView.string = rightStr;
                         });
@@ -600,8 +603,9 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     }
     
     NSString *nullStr = [NSString stringWithFormat:@"//一共有（%ld）个翻译，缺少（%ld）个翻译, 说明符有 (%ld)个不匹配\n\n", keyCount, nullCount, formatSpecifiersCount];
-    self.insertLength = nullStr.length;
-    [showString insertString:nullStr atIndex:0];
+    self.resultLabel.stringValue = nullStr;
+//    self.insertLength = nullStr.length;
+//    [showString insertString:nullStr atIndex:0];
     self.rightTextView.string = [CommonFunction replacingSpace:showString];
     [self setRightTextViewKeyStrColorWithStr:showString];
     
