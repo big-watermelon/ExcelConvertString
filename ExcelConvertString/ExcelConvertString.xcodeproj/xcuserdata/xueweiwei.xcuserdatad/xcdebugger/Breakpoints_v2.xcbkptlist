@@ -14,8 +14,8 @@
             filePath = "ExcelConvertString/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "545"
-            endingLineNumber = "545"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
             landmarkName = "-setupShowStringWithType:"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,110 +23,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6532C544-FC5B-4A88-BCAC-24DA54C6BE32"
+            uuid = "7C0013E8-2E6F-4C87-ACA6-E1E6B6E41FEE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "-stringsKeyRepetitionAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "67B40997-5FF9-43B1-B555-8D644B21A1F0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "+translateString:fromType:toType:completed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C6063CDC-BEDA-4D05-AA88-BF8922A794FD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "+translateString:fromType:toType:completed:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C6063CDC-BEDA-4D05-AA88-BF8922A794FD - 22e3f3abfc3e46c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__60+[CommonFunction translateString:fromType:toType:completed:]_block_invoke"
-                  moduleName = "ExcelConvertString"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xueweiwei/Documents/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/CommonFunction.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "457">
-               </Location>
-               <Location
-                  uuid = "C6063CDC-BEDA-4D05-AA88-BF8922A794FD - 8f5410e193a8fefc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__60+[CommonFunction translateString:fromType:toType:completed:]_block_invoke.212"
-                  moduleName = "ExcelConvertString"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xueweiwei/Documents/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/CommonFunction.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "C6063CDC-BEDA-4D05-AA88-BF8922A794FD - b2a40330152ab8c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_e8_32s40r"
-                  moduleName = "ExcelConvertString"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xueweiwei/Documents/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/CommonFunction.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0BFB2056-1BA9-4CCE-8BA7-B075323C4A03"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "-vacancyAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -134,15 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74970AB3-C9D1-4F6E-B3F4-A79A6C12ED3C"
+            uuid = "3BD2749B-8527-4D1A-8DF6-27588A423DA3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "-vacancyAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,32 +55,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF868CD4-BA37-45EE-8B81-1D2AF24BFAA8"
+            uuid = "BBBDEF19-9621-472E-940C-DA512C819991"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
+            filePath = "ExcelConvertString/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "+translateString:fromType:toType:completed:"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "-vacancyAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B68B4E2C-7404-4F04-BD71-ED27BB0246BA"
+            uuid = "52428E54-4FF5-4479-97A0-7B7E0392C129"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/MainViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "-vacancyAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3384613-6801-44A6-9A69-0F8F13FBC229"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/CommonFunction.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "+translateString:fromType:toType:completed:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "+matchesWithContent:completeBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03DEEE06-AE90-41A3-960E-7F176EBF1DBA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/CommonFunction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "+matchesWithContent:completeBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B3F30F8-9B58-4EAF-A55A-90CF87B04A97"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/MainViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "716"
+            endingLineNumber = "716"
+            landmarkName = "-analysisStringsFilesWithType:completed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D34D7225-1E56-4BA1-9C45-14D1264ACDC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/CommonFunction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "+matchesWithContent:completeBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E606670-05FF-43C6-9B7B-9E3317333AD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/CommonFunction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "+matchesWithContent:completeBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

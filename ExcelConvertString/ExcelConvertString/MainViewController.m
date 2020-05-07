@@ -14,7 +14,7 @@
  4.根据需求选择convert和repetition
  使用说明：
  1.获取normalKey最多为2列，一列注释，一列key
- 2.getKey时设置起始行(默认为1)，从0开始
+ 2.getKey时设置起始行(默认为0)，从0开始
  3.注释列每行至少一个中文，没有自行添加
  4.key区分大小写
  5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)
@@ -43,17 +43,26 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     SetupContentType_XmlKey,
     SetupContentType_XmlValue,
     SetupContentType_XmlStringsMatching,
+    SetupContentType_transferKey,
+    SetupContentType_transferValue,
 };
 @interface MainViewController ()<NSXMLParserDelegate>
 @property (unsafe_unretained) IBOutlet NSTextView *leftTextView;
 @property (unsafe_unretained) IBOutlet NSTextView *rightTextView;
-@property (weak) IBOutlet NSTextField *resultLabel;
-
 @property (strong, nonatomic) NSTextField *rightTextField;
 //@property (weak) IBOutlet NSButton *fill_a_vacancy;
+@property (weak) IBOutlet NSTextField *resultLabel;
+
 @property (weak) IBOutlet NSPopUpButton *vacancyPopUpBtn;
 @property (assign, nonatomic) NSUInteger insertLength;
 @property (assign, nonatomic) SetupContentType lastType;
+
+@property (weak) IBOutlet NSPopUpButton *transferTypeBtn;
+@property (strong, nonatomic) NSMutableArray *transferKeyArray;
+@property (strong, nonatomic) NSMutableArray *transferValueArray;
+@property (strong, nonatomic) NSMutableArray *transferResultArray;
+@property (strong, nonatomic) NSMutableArray *transferKeyRepetitionArray;
+@property (strong, nonatomic) NSMutableDictionary *transferAnnotationDic;
 
 @property (weak) IBOutlet NSButton *buttonKeyRepetition;
 @property (weak) IBOutlet NSButton *buttonStringsKeyRepetition;
@@ -132,18 +141,21 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (void)setupDefault
 {
-    NSString *str = @"设置起始行，默认为1";
+    NSString *str = @"设置起始行，默认为0";
+    self.resultLabel.stringValue = @"";
     self.startLineTf.placeholderString = str;
     [self initInstructions];
     [self initStartLine];
     [self.vacancyPopUpBtn removeAllItems];
     [self.vacancyPopUpBtn addItemsWithTitles:[CommonFunction typeStringArray]];
+    [self.transferTypeBtn removeAllItems];
+    [self.transferTypeBtn addItemsWithTitles:[CommonFunction needTransferTypeArray]];
 }
 
 - (void)initStartLine
 {
     if ([CommonFunction isBlankString:self.startLineTf.stringValue]) {
-        self.startLineTf.stringValue = @"1";
+        self.startLineTf.stringValue = @"0";
     }
 }
 #pragma mark - 使用说明
@@ -157,7 +169,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (void)initTextField:(NSTextField *)tf withTextView:(NSTextView *)view
 {
-    NSString *str = @"/**********\n**操作步骤**\n**先全选excel表，搜索\\n，将所有换行去掉或替换成$$$$$（最后根据需求去掉还是变成\\n**\n1.(必须)粘贴Excel的key列(推荐用英文作为key) -> getNormalKey\n2.(必须)粘贴Excel的value列 -> GetValue\n3.拖入.strings或粘贴路径 -> getStringsKey\n4.根据需求选择convert和repetition\n\n使用说明：\n1.获取key最多为2列，一列注释，一列key\n2.getKey时设置起始行(默认为1)，从0开始\n3.注释列每行至少一个中文，没有自行添加\n4.key区分大小写\n5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)\n.xml解析说明:1.拖入xml路径->getXmlKey\n2.拖入key=xml.key的strings文件路径->getStringsKey\n3.XmlConvert**********/";
+    NSString *str = @"/**********\n**操作步骤**\n**先全选excel表，搜索\\n，将所有换行去掉或替换成$$$$$（最后根据需求去掉还是变成\\n**\n1.(必须)粘贴Excel的key列(推荐用英文作为key) -> getNormalKey\n2.(必须)粘贴Excel的value列 -> GetValue\n3.拖入.strings或粘贴路径 -> getStringsKey\n4.根据需求选择convert和repetition\n\n使用说明：\n1.获取key最多为2列，一列注释，一列key\n2.getKey时设置起始行(默认为0)，从0开始\n3.注释列每行至少一个中文，没有自行添加\n4.key区分大小写\n5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)\n.xml解析说明:1.拖入xml路径->getXmlKey\n2.拖入key=xml.key的strings文件路径->getStringsKey\n3.XmlConvert**********/";
     NSFont *font = [NSFont systemFontOfSize:18.0];
     NSRect rect = view.frame;
     tf.editable = NO;
@@ -226,37 +238,103 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 
 - (IBAction)vacancyAction:(id)sender {
-    if (self.missingValueModelArray &&
-        self.missingValueModelArray.count > 0) {
-        __block NSUInteger translateCount = 0;
-        [self.missingValueModelArray enumerateObjectsUsingBlock:^(MissingValueModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            //MARK:百度翻译查询间隔为1s<=10
-            CGFloat afterTime = 0.2*idx;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(afterTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [CommonFunction translateString:obj.valueString fromType:LanguageType_auto toType:(LanguageType)self.vacancyPopUpBtn.indexOfSelectedItem completed:^(NSString * _Nullable string, NSString * _Nullable error) {
-                    if (!string) {
-                        string = @"";
-                    }
-                    obj.translateString = string;
-                    NSLog(@"翻译 %@ : %@", obj.valueString, string);
-                    translateCount ++;
-                    if (translateCount == self.missingValueModelArray.count) {//所有网络翻译完毕
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            NSMutableString *rightStr = [[NSMutableString alloc] initWithString:self.rightTextView.string];
-                            [self.missingValueModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(MissingValueModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                [rightStr replaceCharactersInRange:NSMakeRange(obj.insertLocation, 0) withString:obj.translateString];//+self.insertLength
-                            }];
-                            self.rightTextView.string = rightStr;
-                        });
-                    }
-                }];
+    NSInteger index = self.transferTypeBtn.indexOfSelectedItem;
+    LanguageType type = (LanguageType)self.vacancyPopUpBtn.indexOfSelectedItem;
+    __block NSUInteger translateCount = 0;
+    __block NSUInteger translateResultCount = 0;//有翻译结果的数量
+    switch (index) {
+        case 0://默认补充缺失翻译
+        {
+            if (!self.missingValueModelArray && self.missingValueModelArray.count <= 0) {
+                return;
+            }
+            self.vacancyPopUpBtn.enabled = NO;
+            [self.missingValueModelArray enumerateObjectsUsingBlock:^(MissingValueModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                //MARK:百度翻译查询间隔为1s<=10
+                CGFloat afterTime = 0.2*idx;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(afterTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [CommonFunction translateString:obj.valueString fromType:LanguageType_auto toType:type completed:^(NSString * _Nullable string, NSString * _Nullable error) {
+                        if (string) {
+                            translateResultCount ++;
+                        }else{
+                            string = @"";
+                        }
+                        obj.translateString = string;
+                        NSLog(@"翻译 %@ : %@", obj.valueString, string);
+                        translateCount ++;
+                        if (translateCount == self.missingValueModelArray.count) {//所有网络翻译完毕
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                self.resultLabel.stringValue = [self.resultLabel.stringValue stringByAppendingFormat:@"网络翻译(%zd)个", translateResultCount];
+                                NSMutableString *rightStr = [[NSMutableString alloc] initWithString:self.rightTextView.string];
+                                [self.missingValueModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(MissingValueModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                    [rightStr replaceCharactersInRange:NSMakeRange(obj.insertLocation+self.insertLength, 0) withString:obj.translateString];
+                                }];
+                                self.rightTextView.string = rightStr;
+                                self.vacancyPopUpBtn.enabled = YES;
+                            });
+                        }
+                    }];
 
-            });
-        }];
+                });
+            }];
+        }
+            break;
+        case 1://翻译根据所有key
+        case 2://翻译根据所有value
+        {
+            NSMutableArray *transferArray = [NSMutableArray new];
+            SetupContentType contentType = SetupContentType_transferKey;
+            if (index == 1) {
+                [transferArray setArray:self.transferKeyArray];
+            }else if (index == 2){
+                contentType = SetupContentType_transferValue;
+                [transferArray setArray:self.transferValueArray];
+            }
+            if (!transferArray && transferArray.count <= 0) {
+                return;
+            }
+            self.vacancyPopUpBtn.enabled = NO;
+            self.transferResultArray = [NSMutableArray new];
+            for (int i = 0; i < transferArray.count; i++) {
+                [self.transferResultArray addObject:@""];
+            }
+            [transferArray enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                //MARK:百度翻译查询间隔为1s<=10
+                CGFloat afterTime = 0.2*idx;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(afterTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [CommonFunction translateString:obj fromType:LanguageType_auto toType:type completed:^(NSString * _Nullable string, NSString * _Nullable error) {
+                        translateCount ++;
+                        NSLog(@"string %@ %zd %zd", string, translateCount, self.transferResultArray.count);
+                        if (string) {
+                            translateResultCount ++;
+                        }else{
+                            string = @"";
+                        }
+                        [self.transferResultArray replaceObjectAtIndex:idx withObject:string];
+                        if (translateCount == self.transferResultArray.count) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                NSString *resultStr = [self.resultLabel.stringValue stringByAppendingFormat:@"网络翻译(%zd)个", translateResultCount];
+                                self.resultLabel.stringValue = resultStr;
+                                [self.transferResultArray setArray:[CommonFunction arrayStringTransferredMeaning:self.transferResultArray]];
+                                [self setupShowStringWithType:contentType];
+                                self.vacancyPopUpBtn.enabled = YES;
+                            });
+                        }
+                    }];
+                    
+                });
+            }];
+            
+        }
+            break;
+        default:
+            break;
     }
+    
 }
 
-
+- (IBAction)needTransferTypeAction:(id)sender {
+}
 
 - (IBAction)keyRepetitionAction:(id)sender
 {
@@ -418,10 +496,11 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     NSDictionary *annotationDic = [[NSDictionary alloc] init];
     NSMutableSet *repetitionSet = [[NSMutableSet alloc] init];
     NSControlStateValue checkState = NSOnState;
+    
+    self.missingValueModelArray = [[NSMutableArray alloc] init];
     if (type == SetupContentType_NormalValue||
         type == SetupContentType_StringsValue ||
         type == SetupContentType_XmlValue) {
-        self.missingValueModelArray = [[NSMutableArray alloc] init];
     }
     switch (type) {
         case SetupContentType_NormalKey:
@@ -472,8 +551,21 @@ typedef NS_ENUM(NSInteger, SetupContentType)
             valueArray = self.xmlValueArray;
             annotationDic = self.xmlStringKeyannotationDic;
         }break;
+        case SetupContentType_transferKey:
+        case SetupContentType_transferValue:
+        {
+            checkState = self.buttonKeyRepetition.state;
+            keyArray = self.transferKeyArray;
+            valueArray = self.transferResultArray;
+        }break;
     }
- 
+    self.transferKeyArray = [NSMutableArray arrayWithArray:keyArray];
+    if (type != SetupContentType_transferValue &&
+        type != SetupContentType_transferKey) {
+        self.transferValueArray = [NSMutableArray arrayWithArray:valueArray];
+    }
+    self.transferKeyRepetitionArray = [NSMutableArray arrayWithArray:repetitionArray];
+    self.transferAnnotationDic = [NSMutableDictionary dictionaryWithDictionary:annotationDic];
     if(repetitionArray.count > 0 && !checkState) {
         [showString appendString:[NSString stringWithFormat:@"%@\n//MARK:Common Key end\n", commonStr]];
     }
@@ -499,6 +591,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
         }else if (type == SetupContentType_NormalValue ||
             type == SetupContentType_StringsKey ||
             type == SetupContentType_XmlStringsMatching ||
+            type == SetupContentType_transferKey ||
+            type == SetupContentType_transferValue ||
             self.valueArray.count == 0) {
             if (i < valueArray.count) {
                 valueStr = valueArray[i];
@@ -519,7 +613,9 @@ typedef NS_ENUM(NSInteger, SetupContentType)
             }
             if (type == SetupContentType_NormalKey ||
                 type == SetupContentType_NormalValue ||
-                type == SetupContentType_XmlKey) {
+                type == SetupContentType_XmlKey ||
+                type == SetupContentType_transferKey ||
+                type == SetupContentType_transferValue) {
                 str = [str stringByAppendingString:kNewLineString];
                 addStrLength += kNewLineString.length;
             }
@@ -574,16 +670,17 @@ typedef NS_ENUM(NSInteger, SetupContentType)
                 if (type == SetupContentType_NormalValue||
                     type == SetupContentType_StringsValue ||
                     type == SetupContentType_XmlValue) {//记录缺少的翻译
-                    MissingValueModel *missingModel = [MissingValueModel new];
-                    missingModel.keyString = keyStr;
-                    if (type == SetupContentType_XmlValue) {
-                        missingModel.valueString = self.stringValueArray[i];
-                    }else{
-                        missingModel.valueString = keyStr;//默认用英文作key
-                    }
-                    missingModel.insertLocation = showString.length -addStrLength-2;
-                    [self.missingValueModelArray addObject:missingModel];
+                    
                 }
+                MissingValueModel *missingModel = [MissingValueModel new];
+                missingModel.keyString = keyStr;
+                if (type == SetupContentType_XmlValue) {
+                    missingModel.valueString = self.stringValueArray[i];
+                }else{
+                    missingModel.valueString = keyStr;//默认用英文作key
+                }
+                missingModel.insertLocation = showString.length -addStrLength-2;
+                [self.missingValueModelArray addObject:missingModel];
                 [showString insertString:@"//缺少翻译" atIndex:showString.length-addStrLength];
             }
         }
@@ -603,9 +700,9 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     }
     
     NSString *nullStr = [NSString stringWithFormat:@"//一共有（%ld）个翻译，缺少（%ld）个翻译, 说明符有 (%ld)个不匹配\n\n", keyCount, nullCount, formatSpecifiersCount];
-    self.resultLabel.stringValue = nullStr;
 //    self.insertLength = nullStr.length;
 //    [showString insertString:nullStr atIndex:0];
+    self.resultLabel.stringValue = nullStr;
     self.rightTextView.string = [CommonFunction replacingSpace:showString];
     [self setRightTextViewKeyStrColorWithStr:showString];
     

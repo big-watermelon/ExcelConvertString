@@ -10,18 +10,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, LanguageType)
-{
+{//需要的语言可以输入语言缩写尝试（可能文档没有）
     LanguageType_en     =0,
-    LanguageType_zh,
-    LanguageType_jp,
+    LanguageType_zh,        //简体
+    LanguageType_jp,        //日语
     LanguageType_kor,       //韩语
     LanguageType_fra,       //法语
     LanguageType_spa    =5, //西班牙语
     LanguageType_th,        //泰语
     LanguageType_ara,       //阿拉伯语
-    LanguageType_vie    =8, //越南语
+    LanguageType_ru,        //俄语
+    LanguageType_pt,        //葡萄牙语
+    LanguageType_vie    =10,//越南语
+    LanguageType_id,        //印尼语
     
     LanguageType_auto,      //自动检测
+};
+
+typedef NS_ENUM(NSInteger, NeedTranslateType)
+{
+    NeedTranslateType_missing,   //翻译缺失的
+    NeedTranslateType_keyAll,    //翻译根据所有key
+    NeedTranslateType_valueAll,  //翻译根据所有value
 };
 @interface CommonFunction : NSObject
 /**
@@ -107,6 +117,7 @@ typedef NS_ENUM(NSInteger, LanguageType)
 
 /// 列表选择语言类型数组(无auto)
 + (NSArray <NSString *>*)typeStringArray;
++ (NSArray <NSString *>*)needTransferTypeArray;
 @end
 
 NS_ASSUME_NONNULL_END

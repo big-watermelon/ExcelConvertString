@@ -68,8 +68,9 @@
 #pragma mark - 对strings内容进行处理
 + (void)matchesWithContent:(NSString *)content completeBlock:(void (^)(NSArray  *stringArray, NSDictionary *annotationDic))completeBlock
 {
-    NSString *pattern = @"[^//*]\".*\".*=.*\".*\".*;";
-    NSError *error = nil;
+    NSString *pattern = @"\".*\".*=.*\".*\".*;";//@"[^//*]\".*\".*=.*\".*\".*;"
+    NSError *error = nil;//\\/\\*[\\w\\W]*?\\*\\/|\\/\\/.*
+    //todo:提取出多行注视/**/
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     if (error) {
         NSLog(@">>> %@", error.localizedDescription);
@@ -163,7 +164,7 @@
 {
     NSString *str1 = [NSString stringWithFormat:@"cd %@/;", path.stringByDeletingLastPathComponent];
     NSString *str2 = @"sudo chmod -R 777;";
-    NSString *str3 = [@"plutil -lint " stringByAppendingString:path.lastPathComponent];//@"plutil -lint Localizable.strings"
+    NSString *str3 = [NSString stringWithFormat:@"plutil -lint %@", path.lastPathComponent];//Localizable.strings
     NSString *str4 = [NSString stringWithFormat:@"%@ %@ %@", str1, str2, str3];
     NSString *str5 = [self cmd:str4];
     return str5;
@@ -273,14 +274,23 @@
         case LanguageType_spa:
             str = @"spa";
             break;
-        case LanguageType_ara:
-            str = @"ara";
-            break;
         case LanguageType_th:
             str = @"th";
             break;
+        case LanguageType_ara:
+            str = @"ara";
+            break;
+        case LanguageType_ru:
+            str = @"ru";
+            break;
+        case LanguageType_pt:
+            str = @"pt";
+            break;
         case LanguageType_vie:
             str = @"vie";
+            break;
+        case LanguageType_id:
+            str = @"id";
             break;
     }
     return str;
@@ -288,14 +298,24 @@
 
 + (NSArray<NSString *> *)typeStringArray
 {
-    return @[@"英语en补缺翻译",
-             @"中文zh补缺翻译",
-             @"日语jp补缺翻译",
-             @"韩语kor补缺翻译",
-             @"法语fra补缺翻译",
-             @"西语spa补缺翻译",
-             @"泰语th补缺翻译",
-             @"阿语ara补缺翻译",
-             @"越南语vie补缺翻译"];
+    return @[@"英语en翻译",
+             @"中文zh翻译",
+             @"日语jp翻译",
+             @"韩语kor翻译",
+             @"法语fra翻译",
+             @"西语spa翻译",
+             @"泰语th翻译",
+             @"阿语ara翻译",
+             @"俄语ru翻译",
+             @"葡语pt翻译",
+             @"越南语vie翻译",
+             @"印尼语id翻译"];
+}
+
++ (NSArray<NSString *> *)needTransferTypeArray
+{
+    return @[@"补充缺失翻译",
+             @"翻译所有根据key值",
+             @"翻译所有根据value值"];
 }
 @end

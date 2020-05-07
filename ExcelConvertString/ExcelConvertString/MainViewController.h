@@ -14,7 +14,7 @@
  4.根据需求选择convert和repetition
  使用说明：
  1.获取normalKey最多为2列，一列注释，一列key
- 2.getKey时设置起始行(默认为1)，从0开始
+ 2.getKey时设置起始行(默认为0)，从0开始
  3.注释列每行至少一个中文，没有自行添加
  4.key区分大小写
  5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)
