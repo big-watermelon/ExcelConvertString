@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73AE8B5A241E5243006EFEF8 /* KeyValueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE8B59241E5243006EFEF8 /* KeyValueModel.m */; };
+		73AE8B5D241E5E68006EFEF8 /* MissingValueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE8B5C241E5E68006EFEF8 /* MissingValueModel.m */; };
+		84B8CE01229D295D00A4E079 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CE00229D295D00A4E079 /* CommonFunction.m */; };
+		84B8CE04229E2C1A00A4E079 /* KeyValueStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */; };
+		EB490E5D213E8E4E002187F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E5C213E8E4E002187F5 /* AppDelegate.m */; };
+		EB490E5F213E8E4F002187F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB490E5E213E8E4F002187F5 /* Assets.xcassets */; };
+		EB490E62213E8E4F002187F5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB490E60213E8E4F002187F5 /* MainMenu.xib */; };
+		EB490E65213E8E4F002187F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E64213E8E4F002187F5 /* main.m */; };
+		EB490E71213FB514002187F5 /* BRNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E6F213FB514002187F5 /* BRNumberFormatter.m */; };
+		EB490E72213FB514002187F5 /* BRNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = EB490E70213FB514002187F5 /* BRNumberField.m */; };
+		EBFCFD52219BBC20003C8AC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFCFD50219BBC20003C8AC9 /* MainViewController.m */; };
+		EBFCFD55219BBEFD003C8AC9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */; };
+		EBFCFD57219BD939003C8AC9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBFCFD56219BD939003C8AC9 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		73AE8B58241E5243006EFEF8 /* KeyValueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueModel.h; sourceTree = "<group>"; };
+		73AE8B59241E5243006EFEF8 /* KeyValueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueModel.m; sourceTree = "<group>"; };
+		73AE8B5B241E5E68006EFEF8 /* MissingValueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissingValueModel.h; sourceTree = "<group>"; };
+		73AE8B5C241E5E68006EFEF8 /* MissingValueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissingValueModel.m; sourceTree = "<group>"; };
+		84B8CDFF229D295D00A4E079 /* CommonFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
+		84B8CE00229D295D00A4E079 /* CommonFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
+		84B8CE02229E2C1A00A4E079 /* KeyValueStateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueStateModel.h; sourceTree = "<group>"; };
+		84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueStateModel.m; sourceTree = "<group>"; };
+		EB490E58213E8E4E002187F5 /* ExcelConvertString.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcelConvertString.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB490E5B213E8E4E002187F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EB490E5C213E8E4E002187F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB490E5E213E8E4F002187F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB490E61213E8E4F002187F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EB490E63213E8E4F002187F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB490E64213E8E4F002187F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB490E66213E8E4F002187F5 /* ExcelConvertString.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExcelConvertString.entitlements; sourceTree = "<group>"; };
+		EB490E6D213FB514002187F5 /* BRNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRNumberField.h; sourceTree = "<group>"; };
+		EB490E6E213FB514002187F5 /* BRNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRNumberFormatter.h; sourceTree = "<group>"; };
+		EB490E6F213FB514002187F5 /* BRNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRNumberFormatter.m; sourceTree = "<group>"; };
+		EB490E70213FB514002187F5 /* BRNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRNumberField.m; sourceTree = "<group>"; };
+		EBFCFD4F219BBC20003C8AC9 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EBFCFD50219BBC20003C8AC9 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		EBFCFD56219BD939003C8AC9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB490E55213E8E4E002187F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB490E4F213E8E4E002187F5 = {
+			isa = PBXGroup;
+			children = (
+				EB490E5A213E8E4E002187F5 /* ExcelConvertString */,
+				EB490E59213E8E4E002187F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB490E59213E8E4E002187F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB490E58213E8E4E002187F5 /* ExcelConvertString.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB490E5A213E8E4E002187F5 /* ExcelConvertString */ = {
+			isa = PBXGroup;
+			children = (
+				EB490E5B213E8E4E002187F5 /* AppDelegate.h */,
+				EB490E5C213E8E4E002187F5 /* AppDelegate.m */,
+				EBFCFD56219BD939003C8AC9 /* Localizable.strings */,
+				EB490E6C213FB500002187F5 /* BRNumber */,
+				EBFCFD4F219BBC20003C8AC9 /* MainViewController.h */,
+				EBFCFD50219BBC20003C8AC9 /* MainViewController.m */,
+				EBFCFD54219BBEFD003C8AC9 /* MainViewController.xib */,
+				84B8CDFF229D295D00A4E079 /* CommonFunction.h */,
+				84B8CE00229D295D00A4E079 /* CommonFunction.m */,
+				73AE8B58241E5243006EFEF8 /* KeyValueModel.h */,
+				73AE8B59241E5243006EFEF8 /* KeyValueModel.m */,
+				84B8CE02229E2C1A00A4E079 /* KeyValueStateModel.h */,
+				84B8CE03229E2C1A00A4E079 /* KeyValueStateModel.m */,
+				73AE8B5B241E5E68006EFEF8 /* MissingValueModel.h */,
+				73AE8B5C241E5E68006EFEF8 /* MissingValueModel.m */,
+				EB490E63213E8E4F002187F5 /* Info.plist */,
+				EB490E60213E8E4F002187F5 /* MainMenu.xib */,
+				EB490E64213E8E4F002187F5 /* main.m */,
+				EB490E5E213E8E4F002187F5 /* Assets.xcassets */,
+				EB490E66213E8E4F002187F5 /* ExcelConvertString.entitlements */,
+			);
+			path = ExcelConvertString;
+			sourceTree = "<group>";
+		};
+		EB490E6C213FB500002187F5 /* BRNumber */ = {
+			isa = PBXGroup;
+			children = (
+				EB490E6D213FB514002187F5 /* BRNumberField.h */,
+				EB490E70213FB514002187F5 /* BRNumberField.m */,
+				EB490E6E213FB514002187F5 /* BRNumberFormatter.h */,
+				EB490E6F213FB514002187F5 /* BRNumberFormatter.m */,
+			);
+			path = BRNumber;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB490E57213E8E4E002187F5 /* ExcelConvertString */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB490E69213E8E4F002187F5 /* Build configuration list for PBXNativeTarget "ExcelConvertString" */;
+			buildPhases = (
+				EB490E54213E8E4E002187F5 /* Sources */,
+				EB490E55213E8E4E002187F5 /* Frameworks */,
+				EB490E56213E8E4E002187F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExcelConvertString;
+			productName = ExcelConvertString;
+			productReference = EB490E58213E8E4E002187F5 /* ExcelConvertString.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB490E50213E8E4E002187F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "大西瓜";
+				TargetAttributes = {
+					EB490E57213E8E4E002187F5 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = EB490E53213E8E4E002187F5 /* Build configuration list for PBXProject "ExcelConvertString" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB490E4F213E8E4E002187F5;
+			productRefGroup = EB490E59213E8E4E002187F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB490E57213E8E4E002187F5 /* ExcelConvertString */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB490E56213E8E4E002187F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB490E5F213E8E4F002187F5 /* Assets.xcassets in Resources */,
+				EBFCFD57219BD939003C8AC9 /* Localizable.strings in Resources */,
+				EBFCFD55219BBEFD003C8AC9 /* MainViewController.xib in Resources */,
+				EB490E62213E8E4F002187F5 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB490E54213E8E4E002187F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB490E65213E8E4F002187F5 /* main.m in Sources */,
+				73AE8B5A241E5243006EFEF8 /* KeyValueModel.m in Sources */,
+				EB490E71213FB514002187F5 /* BRNumberFormatter.m in Sources */,
+				84B8CE01229D295D00A4E079 /* CommonFunction.m in Sources */,
+				73AE8B5D241E5E68006EFEF8 /* MissingValueModel.m in Sources */,
+				84B8CE04229E2C1A00A4E079 /* KeyValueStateModel.m in Sources */,
+				EB490E5D213E8E4E002187F5 /* AppDelegate.m in Sources */,
+				EBFCFD52219BBC20003C8AC9 /* MainViewController.m in Sources */,
+				EB490E72213FB514002187F5 /* BRNumberField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EB490E60213E8E4F002187F5 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB490E61213E8E4F002187F5 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB490E67213E8E4F002187F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EB490E68213E8E4F002187F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EB490E6A213E8E4F002187F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.2;
+				INFOPLIST_FILE = ExcelConvertString/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daxigua.ExcelConvertString;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB490E6B213E8E4F002187F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.2;
+				INFOPLIST_FILE = ExcelConvertString/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daxigua.ExcelConvertString;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB490E53213E8E4E002187F5 /* Build configuration list for PBXProject "ExcelConvertString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB490E67213E8E4F002187F5 /* Debug */,
+				EB490E68213E8E4F002187F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB490E69213E8E4F002187F5 /* Build configuration list for PBXNativeTarget "ExcelConvertString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB490E6A213E8E4F002187F5 /* Debug */,
+				EB490E6B213E8E4F002187F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB490E50213E8E4E002187F5 /* Project object */;
+}

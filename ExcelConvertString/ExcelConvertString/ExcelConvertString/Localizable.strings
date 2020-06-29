@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  ExcelConvertString
+
+  Created by admin on 2018/11/14.
+  Copyright © 2018 大西瓜. All rights reserved.
+*/
+
+"a%f\"" = "a%";
+"a%f\"" = "a";
+"aa%f\"" = "%sa";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"//\n\nb\n" = "b";
+"c;" = "c";
+"b" = "b";
+"a%f" = "a%f\"";
+"a%f" = "a\"";
+"/*" = "a";
+"//*" = "b";
+
