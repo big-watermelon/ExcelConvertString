@@ -118,6 +118,13 @@ typedef NS_ENUM(NSInteger, NeedTranslateType)
 /// 列表选择语言类型数组(无auto)
 + (NSArray <NSString *>*)typeStringArray;
 + (NSArray <NSString *>*)needTransferTypeArray;
+
+/**
+ 拷贝文本内容
+
+ @param string 内容
+ */
++ (void)copyString:(NSString *)string;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,6 +12,7 @@
  2.(必须)粘贴Excel的value列 -> GetValue
  3.拖入.strings或粘贴路径 -> getStringsKey
  4.根据需求选择convert和repetition
+ 5.convert之后自动拷贝
  使用说明：
  1.获取normalKey最多为2列，一列注释，一列key
  2.getKey时设置起始行(默认为0)，从0开始
@@ -169,7 +170,7 @@ typedef NS_ENUM(NSInteger, SetupContentType)
 
 - (void)initTextField:(NSTextField *)tf withTextView:(NSTextView *)view
 {
-    NSString *str = @"/**********\n**操作步骤**\n**先全选excel表，搜索\\n，将所有换行去掉或替换成$$$$$（最后根据需求去掉还是变成\\n**\n1.(必须)粘贴Excel的key列(推荐用英文作为key) -> getNormalKey\n2.(必须)粘贴Excel的value列 -> GetValue\n3.拖入.strings或粘贴路径 -> getStringsKey\n4.根据需求选择convert和repetition\n\n使用说明：\n1.获取key最多为2列，一列注释，一列key\n2.getKey时设置起始行(默认为0)，从0开始\n3.注释列每行至少一个中文，没有自行添加\n4.key区分大小写\n5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)\n.xml解析说明:1.拖入xml路径->getXmlKey\n2.拖入key=xml.key的strings文件路径->getStringsKey\n3.XmlConvert**********/";
+    NSString *str = @"/**********\n**操作步骤**\n**先全选excel表，搜索\\n，将所有换行去掉或替换成$$$$$（最后根据需求去掉还是变成\\n**\n1.(必须)粘贴Excel的key列(推荐用英文作为key) -> getNormalKey\n2.(必须)粘贴Excel的value列 -> GetValue\n3.拖入.strings或粘贴路径 -> getStringsKey\n4.根据需求选择convert和repetition\n5.convert之后自动拷贝\n\n使用说明：\n1.获取key最多为2列，一列注释，一列key\n2.getKey时设置起始行(默认为0)，从0开始\n3.注释列每行至少一个中文，没有自行添加\n4.key区分大小写\n5.getConvertKey默认都转换成%@,用#隔开，每次获取都会重置(例如：产品名#链接#www.xxx.com#Open)\n.xml解析说明:1.拖入xml路径->getXmlKey\n2.拖入key=xml.key的strings文件路径->getStringsKey\n3.XmlConvert**********/";
     NSFont *font = [NSFont systemFontOfSize:18.0];
     NSRect rect = view.frame;
     tf.editable = NO;
@@ -177,9 +178,10 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     tf.bordered = NO;
     tf.font = font;
     tf.placeholderString = str;
+    
     tf.preferredMaxLayoutWidth = NSWidth(rect);
     [view addSubview:tf];
-//    [self setConstraintWithView:view subView:tf];
+    [self setConstraintWithView:view subView:tf];
 }
 #pragma mark - Action
 //***************最多为2列，一列注释，一列key**********************
@@ -707,6 +709,8 @@ typedef NS_ENUM(NSInteger, SetupContentType)
     [self setRightTextViewKeyStrColorWithStr:showString];
     if (valueArray && valueArray.count > 0) {
         self.leftTextView.string = @"";
+        [CommonFunction copyString:self.rightTextView.string];
+        
     }
 }
 #pragma mark - 解析strings文件

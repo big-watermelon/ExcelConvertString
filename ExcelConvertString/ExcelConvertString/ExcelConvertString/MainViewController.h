@@ -12,6 +12,7 @@
  2.(必须)粘贴Excel的value列 -> GetValue
  3.拖入.strings或粘贴路径 -> getStringsKey
  4.根据需求选择convert和repetition
+ 5.convert之后自动拷贝
  使用说明：
  1.获取normalKey最多为2列，一列注释，一列key
  2.getKey时设置起始行(默认为0)，从0开始

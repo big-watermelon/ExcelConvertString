@@ -8,7 +8,7 @@
 
 #import "CommonFunction.h"
 #import <CommonCrypto/CommonCrypto.h>
-
+#import <AppKit/AppKit.h>
 
 @implementation CommonFunction
 
@@ -317,5 +317,11 @@
     return @[@"补充缺失翻译",
              @"翻译所有根据key值",
              @"翻译所有根据value值"];
+}
+
++ (void)copyString:(NSString *)string
+{
+    [[NSPasteboard generalPasteboard] declareTypes:[NSArray arrayWithObject: NSStringPboardType] owner:nil];
+    [[NSPasteboard generalPasteboard] setString:string forType: NSStringPboardType];
 }
 @end
