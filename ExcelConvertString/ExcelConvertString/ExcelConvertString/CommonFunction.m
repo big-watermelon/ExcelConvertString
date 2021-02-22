@@ -66,19 +66,26 @@
     return NO;
 }
 #pragma mark - 对strings内容进行处理
-+ (void)matchesWithContent:(NSString *)content completeBlock:(void (^)(NSArray  *stringArray, NSDictionary *annotationDic))completeBlock
++ (void)matchesWithContent:(NSString *)content completeBlock:(void (^)(NSArray *, NSArray *, NSArray *, NSDictionary *))completeBlock
 {
-    NSString *pattern = @"\".*\".*=.*\".*\".*;";//@"[^//*]\".*\".*=.*\".*\".*;"
+    /*
+     @".*.*=.*.*.*;" 通用性比 @"\".*\".*=.*\".*\".*;" 强，后者无法用于没有双引号""的情况
+     
+     */
+    NSString *pattern = @".*.*=.*.*.*;";//@"[^//*]\".*\".*=.*\".*\".*;"
     NSError *error = nil;//\\/\\*[\\w\\W]*?\\*\\/|\\/\\/.*
     //todo:提取出多行注视/**/
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     if (error) {
         NSLog(@">>> %@", error.localizedDescription);
-        return completeBlock(nil, nil);;
+        return completeBlock(nil, nil, nil, nil);;
     }
     
     NSArray *results = [regex matchesInString:content options:0 range:NSMakeRange(0, content.length)];
     NSMutableArray *matches = [NSMutableArray array];
+    NSMutableArray *keyArray = [NSMutableArray array];
+    NSMutableArray *valueArray = [NSMutableArray array];
+    NSMutableArray *keyRepetitionArray = [NSMutableArray array];
     NSMutableDictionary *annotationDic = [NSMutableDictionary dictionary];
     __block NSRange lastRange = NSMakeRange(0, 0);
     if (results.count > 0) {
@@ -99,11 +106,24 @@
                         [annotationDic setObject:subAnnotation  forKey:@(matches.count)];
                     }
                     [matches addObject:substring];
+                    //切割key和value
+                    if ([substring containsString:@"="]) {
+                        NSDictionary *dic = [substring propertyListFromStringsFileFormat];
+                        NSString *keyStr = dic.allKeys.firstObject;
+                        NSString *valueStr = dic.allValues.firstObject;
+                        if (keyStr.length > 0) {
+                            if ([keyArray containsObject:keyStr]) {
+                                [keyRepetitionArray addObject:keyStr];
+                            }
+                            [keyArray addObject:keyStr];
+                            [valueArray addObject:valueStr];
+                        }
+                    }
                 }
             }
         }];
     }
-    return completeBlock(matches, annotationDic);
+    return completeBlock(keyArray, valueArray, keyRepetitionArray, annotationDic);
 }
 #pragma mark - 添加转义
 + (NSString *)stringTransferredMeaning:(NSString *)str
@@ -195,7 +215,7 @@
     const char *cStr = [input UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (int)strlen(cStr), digest); // This is the md5 call
-        NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
         [output appendFormat:@"%02x", digest[i]];
     return output;
@@ -206,22 +226,22 @@
     //创建URL
     NSString *encodeStr = [string stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     NSString *httpStr = @"http://api.fanyi.baidu.com/api/trans/vip/translate";
-//    NSString *httpsStr = @"https://fanyi-api.baidu.com/api/trans/vip/translate";//备用
+    //    NSString *httpsStr = @"https://fanyi-api.baidu.com/api/trans/vip/translate";//备用
     NSString *appIdStr = @"20200315000398557";
     NSString *saltStr = @"1435660288";
     NSString *secretStr = @"bwJmdJ4G_uzM9ClZQgRN";
     NSString *signStr = [NSString stringWithFormat:@"%@%@%@%@", appIdStr, string, saltStr, secretStr];
     NSString *urlStr = [NSString stringWithFormat:@"%@?q=%@&from=%@&to=%@&appid=%@&salt=%@&sign=%@", httpStr, encodeStr, [self typeString:fType], [self typeString:tType], appIdStr, saltStr, [CommonFunction md5:signStr]];
     NSURL *url = [NSURL URLWithString:urlStr];
-
+    
     NSURLRequest *quest = [NSURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:15];
     //发送请求
-//    NSURLResponse *responce = nil;
+    //    NSURLResponse *responce = nil;
     //创建一个队列
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:quest queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-           
-//        NSLog(@"%@---\n--%@---\n---%@",[NSThread currentThread],responce,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        
+        //        NSLog(@"%@---\n--%@---\n---%@",[NSThread currentThread],responce,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         if (!data) {
             completed(nil, @"data为空");
         }
@@ -233,7 +253,7 @@
                     error = [error stringByAppendingString:@"\n"];
                 }
                 error = [error stringByAppendingFormat:@"%@:%@", obj, [dict valueForKey:obj]];
-//                NSLog(@"%@:%@", obj, [dict valueForKey:obj]);
+                //                NSLog(@"%@:%@", obj, [dict valueForKey:obj]);
             }];
             completed(nil, error);
         }else{
@@ -325,3 +345,4 @@
     [[NSPasteboard generalPasteboard] setString:string forType: NSStringPboardType];
 }
 @end
+

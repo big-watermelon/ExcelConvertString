@@ -22,19 +22,6 @@
 		EBFCFD57219BD939003C8AC9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBFCFD56219BD939003C8AC9 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		7339A75224D7C92400DD4086 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		73AE8B58241E5243006EFEF8 /* KeyValueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueModel.h; sourceTree = "<group>"; };
 		73AE8B59241E5243006EFEF8 /* KeyValueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueModel.m; sourceTree = "<group>"; };
@@ -73,19 +60,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7339A74824D7C8F700DD4086 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EB490E4F213E8E4E002187F5 = {
 			isa = PBXGroup;
 			children = (
 				EB490E5A213E8E4E002187F5 /* ExcelConvertString */,
 				EB490E59213E8E4E002187F5 /* Products */,
-				7339A74824D7C8F700DD4086 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,7 +124,6 @@
 				EB490E54213E8E4E002187F5 /* Sources */,
 				EB490E55213E8E4E002187F5 /* Frameworks */,
 				EB490E56213E8E4E002187F5 /* Resources */,
-				7339A75224D7C92400DD4086 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -357,10 +335,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = ExcelConvertString/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,10 +355,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				INFOPLIST_FILE = ExcelConvertString/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

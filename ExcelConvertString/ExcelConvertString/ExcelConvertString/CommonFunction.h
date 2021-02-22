@@ -76,7 +76,14 @@ typedef NS_ENUM(NSInteger, NeedTranslateType)
  @param content strings Content
  @param completeBlock stringArray(键值对数组) annotationDic(注释字典)
  */
-+ (void)matchesWithContent:(NSString *)content completeBlock:(void (^)(NSArray  *stringArray, NSDictionary *annotationDic))completeBlock;
+
+/**
+ 对strings内容进行处理
+
+ @param content strings Content
+ @param completeBlock keyRepetitionArray(重复key值) annotationDic(注释字典)
+ */
++ (void)matchesWithContent:(NSString *)content completeBlock:(void (^)(NSArray *keyArray, NSArray *valueArray, NSArray * keyRepetitionArray, NSDictionary *annotationDic))completeBlock;
 /**
  对" \n 添加转义
 

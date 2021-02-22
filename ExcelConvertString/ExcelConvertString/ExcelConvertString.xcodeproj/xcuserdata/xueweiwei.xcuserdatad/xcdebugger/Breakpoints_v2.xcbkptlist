@@ -12,11 +12,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.236518"
+            timestampString = "633494114.225812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "695"
-            endingLineNumber = "695"
+            startingLineNumber = "649"
+            endingLineNumber = "649"
             landmarkName = "-setupShowStringWithType:"
             landmarkType = "7">
          </BreakpointContent>
@@ -29,11 +29,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.236957"
+            timestampString = "633494114.226463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-vacancyAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,11 +46,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.237218"
+            timestampString = "633494114.226927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-vacancyAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -63,13 +63,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.2374769"
+            timestampString = "633494114.227366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "-vacancyAction:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[MainViewController vacancyAction:]_block_invoke_3.189"
+                  moduleName = "ExcelConvertString"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xueweiwei/Desktop/work/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/MainViewController.m"
+                  timestampString = "633494114.658301"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "322"
+                  endingLineNumber = "322"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[MainViewController vacancyAction:]_block_invoke_4.194"
+                  moduleName = "ExcelConvertString"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xueweiwei/Desktop/work/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/MainViewController.m"
+                  timestampString = "633494114.660125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "322"
+                  endingLineNumber = "322"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,78 +112,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.237739"
+            timestampString = "633494114.227809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "-vacancyAction:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MainViewController vacancyAction:]"
-                  moduleName = "ExcelConvertString"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xueweiwei/Desktop/work/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/MainViewController.m"
-                  timestampString = "618218166.711973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "371"
-                  endingLineNumber = "371"
-                  offsetFromSymbolStart = "1891">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[MainViewController vacancyAction:]_block_invoke.258"
-                  moduleName = "ExcelConvertString"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xueweiwei/Desktop/work/GitHub/ExcelConvertString/ExcelConvertString/ExcelConvertString/MainViewController.m"
-                  timestampString = "618218166.713171"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "373"
-                  endingLineNumber = "373"
-                  offsetFromSymbolStart = "133">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A3384613-6801-44A6-9A69-0F8F13FBC229"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            timestampString = "618216057.624887"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "+matchesWithContent:completeBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "03DEEE06-AE90-41A3-960E-7F176EBF1DBA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            timestampString = "618216057.62493"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "+matchesWithContent:completeBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,46 +129,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.238193"
+            timestampString = "633494114.228241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "767"
-            endingLineNumber = "767"
-            landmarkName = "-setupShowStringWithType:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D34D7225-1E56-4BA1-9C45-14D1264ACDC6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            timestampString = "618216057.6253051"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "+matchesWithContent:completeBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0E606670-05FF-43C6-9B7B-9E3317333AD6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ExcelConvertString/CommonFunction.m"
-            timestampString = "618216057.625352"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "+matchesWithContent:completeBlock:"
+            startingLineNumber = "721"
+            endingLineNumber = "721"
+            landmarkName = "-analysisStringsFilesWithType:completed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -213,12 +145,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218086.23849"
+            timestampString = "633494114.228713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "-searchLanguageAction:"
+            startingLineNumber = "910"
+            endingLineNumber = "910"
+            landmarkName = "-copyContent"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -229,12 +161,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218165.382923"
+            timestampString = "633494114.2291861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-convertAction:"
+            startingLineNumber = "885"
+            endingLineNumber = "885"
+            landmarkName = "-showAllFileWithPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -245,12 +177,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ExcelConvertString/MainViewController.m"
-            timestampString = "618218177.636802"
+            timestampString = "633494114.229647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
-            landmarkName = "-getValueAction:"
+            startingLineNumber = "855"
+            endingLineNumber = "855"
+            landmarkName = "-textDidChange:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExcelConvertString/MainViewController.m"
+            timestampString = "633494114.230104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "881"
+            endingLineNumber = "881"
+            landmarkName = "-showAllFileWithPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

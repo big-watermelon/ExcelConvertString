@@ -21,7 +21,7 @@
 {
     MainViewController *viewCtl = [[MainViewController alloc] init];
     [self.window setContentViewController:viewCtl];
-    
+
 }
 
 - (void)test
